@@ -19,7 +19,10 @@ function App(){
 
   return (  
     <div> 
-      {user ? <Dashboard /> : <Login />}
+      {user 
+        ? <Dashboard /> 
+        : <Login />
+        }
     </div>
    );
 }
