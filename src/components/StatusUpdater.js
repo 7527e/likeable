@@ -1,5 +1,5 @@
 import {db} from '../Firebase'
-import { doc, setDoc, getDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore"; 
 import { getAuth, updateProfile } from "firebase/auth";
 import { async } from '@firebase/util';
 import { useState, useEffect } from 'react';
@@ -15,33 +15,32 @@ const user = auth.currentUser;
 
 function StatusUpdater(){
     
-    const [myStatus, setMyStatus] = useState("loading");
+    const docRef = doc(db, "users", user.uid);
 
-    const fetchStatus = async () => {
+    const [myStatus, setMyStatus] = useState("");
+    const sub = async(e) => {
 
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-        
-        if (docSnap.exists()) {
-            console.log(docSnap.data().status);
-            const sts = docSnap.data().status;
-            setMyStatus(sts);
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-            const sts = "No status";
-            setMyStatus(sts);
-        }
+        e.preventDefault();
+          
+        await updateDoc(docRef, {
+            capital: true,
+            status: myStatus
+          });
     }
-
-    useEffect(() => {
-        fetchStatus()
-    }, []); 
+   
     
     return ( 
         <div>
-            Your currenth status <br />
-                {myStatus}
+            <center>
+                <form style={{marginTop:"200px" }}
+                  onSubmit={(event) => {sub(event)}}>
+            
+                    <input type="text" placeholder="Course Enrolled"
+                      onChange={(e)=>{setMyStatus(e.target.value)}}/>
+                      <br/><br/>
+                    <button type="submit">Submit</button>
+                </form>
+            </center>
         </div>
      );
 }

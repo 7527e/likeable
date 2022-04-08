@@ -2,6 +2,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getAuth, updateProfile } from "firebase/auth";
 import Logout from "./Logout";
 import {db} from "../Firebase"
+import StatusFetcher from "./StatusFetcher";
 import StatusUpdater from "./StatusUpdater";
 // import Status from "./Status";
 
@@ -11,7 +12,6 @@ const user = auth.currentUser;
 async function addUserToDB(){
     await setDoc(doc(db, "users", user.uid), {
         name: user.displayName,
-        status: "Hey there! I am using Likeable",
         email: user.email,
         isUserAnon: user.isAnonymous,
         photo: user.photoURL,
@@ -28,6 +28,7 @@ const Dashboard = () => {
             <br />
             {user.displayName}
         <Logout />    
+        <StatusFetcher />   
         <StatusUpdater />   
         </div>
      );
