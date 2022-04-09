@@ -1,30 +1,44 @@
-import './App.css';
-import Dashboard from './components/Dashboard'
-import Login from './components/Login'
-import { useAuthState } from 'react-firebase-hooks/auth';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import SetStatus from "./pages/SetStatus";
+import Login from "./pages/Login";
+import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase-config";
 
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
-// import 'firebase/auth';
+function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
-import {auth} from './Firebase'
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/login";
+    });
+  };
 
-// const auth = firebase.auth();
-// const firestore = firebase.firestore();
+  return (
+    <Router>
+      <nav>
+        <Link to="/"> Home </Link>
 
-
-function App(){
-  
-  const [user] = useAuthState(auth);
-
-  return (  
-    <div> 
-      {user 
-        ? <Dashboard /> 
-        : <Login />
-        }
-    </div>
-   );
+        {!isAuth ? (
+          <Link to="/login"> Login </Link>
+        ) : (
+          <>
+            <Link to="/setstatus"> Set your status </Link>
+            <button className="logout-with-google-btn" onClick={signUserOut}> Log Out</button>
+          </>
+        )}
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route path="/setstatus" element={<SetStatus isAuth={isAuth} />} />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+      </Routes>
+    </Router>
+  );
 }
- 
+
 export default App;

@@ -4,9 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-src/firebase.js
-src/components/Status.js
-src/components/StatusUpdater.js
 
 # testing
 /coverage
@@ -20,9 +17,7 @@ src/components/StatusUpdater.js
 .env.development.local
 .env.test.local
 .env.production.local
-.env
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
