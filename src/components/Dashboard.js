@@ -9,6 +9,7 @@ import StatusUpdater from "./StatusUpdater";
 const auth = getAuth();
 const user = auth.currentUser;
 
+
 async function addUserToDB(){
     await setDoc(doc(db, "users", user.uid), {
         name: user.displayName,
@@ -22,6 +23,7 @@ async function addUserToDB(){
 const Dashboard = () => {
 
     addUserToDB();
+
     return ( 
         <div className="Dashboard">
             This is Dashboard
@@ -29,7 +31,6 @@ const Dashboard = () => {
             {user.displayName}
         <Logout />    
         <StatusFetcher />   
-        <StatusUpdater />   
         </div>
      );
 }
