@@ -10,6 +10,7 @@ const user = auth.currentUser;
 function StatusFetcher(){
     
     const [myStatus, setMyStatus] = useState("loading");
+    const [myLikes, setmyLikes] = useState("loading");
 
     const fetchStatus = async () => {
 
@@ -19,7 +20,9 @@ function StatusFetcher(){
         if (docSnap.exists()) {
             console.log(docSnap.data().status);
             const sts = docSnap.data().status;
+            const lks = docSnap.data().likes;
             setMyStatus(sts);
+            setmyLikes(lks);
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -51,16 +54,19 @@ function StatusFetcher(){
         <div>
             Your current status <br />
                 {myStatus}
-            <center>
-                <form style={{marginTop:"200px" }}
+                <br />
+            Likes: <br />
+            {myLikes}
+        
+                <form style={{marginTop:"20px" }}
                   onSubmit={(event) => {sub(event)}}>
             
                     <input type="text" placeholder="Enter new status"
                       onChange={(e)=>{setNewStatus(e.target.value)}}/>
                       <br/><br/>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Update status</button>
                 </form>
-            </center>
+            
         </div>
      );
     }

@@ -3,25 +3,26 @@ import { getAuth, updateProfile } from "firebase/auth";
 import Logout from "./Logout";
 import {db} from "../Firebase"
 import StatusFetcher from "./StatusFetcher";
-import StatusUpdater from "./StatusUpdater";
-// import Status from "./Status";
+import Feeds from "./Feeds";
 
 const auth = getAuth();
-const user = auth.currentUser;
+// user is null for some time, make this thing wait
 
 
-async function addUserToDB(){
-    await setDoc(doc(db, "users", user.uid), {
-        name: user.displayName,
-        email: user.email,
-        isUserAnon: user.isAnonymous,
-        photo: user.photoURL,
-    });
-    console.log("This User is Added to the DB");
-}
 
 const Dashboard = () => {
-
+    
+    const user = auth.currentUser;
+    async function addUserToDB(){
+        await setDoc(doc(db, "users", user.uid), {
+            name: user.displayName,
+            email: user.email,
+            isUserAnon: user.isAnonymous,
+            photo: user.photoURL,
+        },{merge:true});
+        console.log("This User is Added to the DB");
+    }
+    
     addUserToDB();
 
     return ( 
@@ -30,7 +31,8 @@ const Dashboard = () => {
             <br />
             {user.displayName}
         <Logout />    
-        <StatusFetcher />   
+        <StatusFetcher />  
+        <Feeds />
         </div>
      );
 }
