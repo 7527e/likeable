@@ -21,13 +21,18 @@ function App() {
   return (
     <Router>
       <nav>
-        <Link to="/"> Home </Link>
+        <h1 style={{color: "red", padding: "40px"}}>
+        Likable
+        </h1>
+        
+       
 
         {!isAuth ? (
-          <Link to="/login"> Login </Link>
+          <Link to="/login" style={{padding: "40px"}}> Login </Link>
         ) : (
           <>
-            <Link to="/setstatus"> Set your status </Link>
+             <Link to="/"> Home </Link>
+            <Link to="/setstatus" style={{padding: "40px"}}> Set your status </Link>
             <button className="logout-with-google-btn" onClick={signUserOut}> Log Out</button>
           </>
         )}
