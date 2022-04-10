@@ -34,7 +34,7 @@ function Home({ isAuth }) {
     <div className="homePage">
       {userLists.map((user) => {
         const userRef = doc(db, "users", user.id);
-        let lcount = user.likeCount;
+        let lcount = (user.likeCount || 0);
         console.log(userRef);
         return (
           <div className="status">
@@ -42,11 +42,7 @@ function Home({ isAuth }) {
               <div className="title">
                 <h1> {user.name}</h1>
               </div>
-                <LikeButton userRef = {userRef} />
-                
-                {user.likeCount || 0}❤
-                <br />
-              
+                <LikeButton userRef = {userRef} lcount = {lcount} />
             </div>
             <div className="statusTextContainer"> {user.status} </div>
             <hr />
