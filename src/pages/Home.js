@@ -28,22 +28,24 @@ function Home({ isAuth }) {
     getUsers();
   }, []);
 
+  
+
   return (
     <div className="homePage">
       {userLists.map((user) => {
         const userRef = doc(db, "users", user.id);
-      
+        let lcount = user.likeCount;
         console.log(userRef);
         return (
           <div className="status">
             <div className="statusHeader">
               <div className="title">
                 <h1> {user.name}</h1>
-                {user.likeCount || 0}❤
-
-                <LikeButton userRef = {userRef} />
-                <br />
               </div>
+                <LikeButton userRef = {userRef} />
+                
+                {user.likeCount || 0}❤
+                <br />
               
             </div>
             <div className="statusTextContainer"> {user.status} </div>

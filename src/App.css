@@ -179,12 +179,6 @@ textarea {
 .statusHeader .title {
   flex: 50%;
 }
-.statusHeader .deletestatus {
-  flex: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
 .deletestatus button {
   border: none;
@@ -201,4 +195,22 @@ textarea {
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+}
+
+h1{
+  font-size: 100%;
+  color: red;
+  align-items: flex-end;
+  display: inline-block;
+}
+
+.statusHeader .btn-small {
+  /* flex: 10%; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+  color: white;
+  margin-left: 60%;
+  margin-right: 10px;
+  display: inline-block;
 }

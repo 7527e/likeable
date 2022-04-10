@@ -52,9 +52,9 @@ const Like= ({userRef}) => {
     }, [liked]);
 
     return liked ? ( 
-        <button onClick={removeLike}>Unlike </button>
+        <button className="btn btn-secondary btn-small" onClick={removeLike}>Unlike </button>
      ) : (
-        <button onClick={addLike}>👍Like</button>
+        <button className="btn btn-primary btn-small" onClick={addLike}>Like</button>
      );
 }
  
