@@ -179,14 +179,6 @@ textarea {
   flex: 50%;
 }
 
-.deletestatus button {
-  border: none;
-
-  background: none;
-  font-size: 30px;
-  cursor: pointer;
-}
-
 .status .statusTextContainer {
   word-wrap: break-word;
   height: auto;
@@ -196,18 +188,24 @@ textarea {
   overflow-y: auto;
 }
 
-h1{
-  font-size: 100%;
-  color: red;
+nav > h1{
+  font-size: 25px;
+  color: rgb(222, 26, 160);;
   align-items: flex-end;
   display: inline-block;
+  outline-color: wheat;
+  outline-width: 1px;
+  outline-style: dashed;
+  margin: 40px;
+  outline-offset: 0ch;
 }
 
+h1{
+  color: rgb(249, 64, 27);
+}
 .statusHeader .btn-small {
-  /* flex: 10%; */
   display: flex;
   flex-direction: column;
-  /* align-items: flex-end; */
   color: white;
   margin-left: 60%;
   margin-right: 10px;

@@ -12,9 +12,9 @@ function App() {
 
   const signUserOut = () => {
     signOut(auth).then(() => {
+      window.location.pathname = "/login";
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = "/login";
     });
   };
 
@@ -41,6 +41,8 @@ function App() {
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/setstatus" element={<SetStatus isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+        <Route path="*" element={<p>There's nothing here: 404!</p>} />
+
       </Routes>
     </Router>
   );
