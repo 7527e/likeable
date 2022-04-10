@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <nav>
-        <h1 style={{color: "red", padding: "40px"}}>
+        <h1 style={{ padding: "40px"}}>
         Likable
         </h1>
         
