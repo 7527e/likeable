@@ -48,7 +48,6 @@ function Home({ isAuth }) {
             </div>
             <div className="statusTextContainer"> {user.status} </div>
             <hr />
-            <small>Contact: {user.email}</small>
             <br />
           </div>
         );
