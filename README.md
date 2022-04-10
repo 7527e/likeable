@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+# Likable
+A place where you can see the status of other users and react (like/unlike) to user profiles.
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
