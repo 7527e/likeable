@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc, getDoc, DocumentReference } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  DocumentReference,
+} from "firebase/firestore";
 import { auth, db } from "../firebase-config";
-import LikeButton from "./LikeButton"
+import LikeButton from "./LikeButton";
 import { useNavigate } from "react-router-dom";
 
 function Home({ isAuth }) {
-
   let navigate = useNavigate();
-
 
   useEffect(() => {
     if (!isAuth) {
       navigate("/login");
     }
   }, []);
-  
 
   const [userLists, setUserList] = useState([]);
   const usersCollectionRef = collection(db, "users");
@@ -28,13 +32,11 @@ function Home({ isAuth }) {
     getUsers();
   }, []);
 
-  
-
   return (
     <div className="homePage">
       {userLists.map((user) => {
         const userRef = doc(db, "users", user.id);
-        let lcount = (user.likeCount || 0);
+        let lcount = user.likeCount || 0;
         console.log(userRef);
         return (
           <div className="status">
@@ -42,16 +44,13 @@ function Home({ isAuth }) {
               <div className="title">
                 <h1> {user.name}</h1>
               </div>
-                <LikeButton userRef = {userRef} lcount = {lcount} />
+              <LikeButton userRef={userRef} lcount={lcount} />
             </div>
             <div className="statusTextContainer"> {user.status} </div>
             <hr />
-                <small>
-                Contact: {user.email}
-                </small>
-                <br />
+            <small>Contact: {user.email}</small>
+            <br />
           </div>
-          
         );
       })}
     </div>

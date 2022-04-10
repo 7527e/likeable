@@ -21,19 +21,24 @@ function App() {
   return (
     <Router>
       <nav>
-        <h1 style={{ padding: "40px"}}>
-        Likable
-        </h1>
-        
-       
+        <h1 style={{ padding: "40px" }}>Likable</h1>
 
         {!isAuth ? (
-          <Link to="/login" style={{padding: "40px"}}> Login </Link>
+          <Link to="/login" style={{ padding: "40px" }}>
+            {" "}
+            Login{" "}
+          </Link>
         ) : (
           <>
-             <Link to="/"> Home </Link>
-            <Link to="/setstatus" style={{padding: "40px"}}> Set your status </Link>
-            <button className="logout-with-google-btn" onClick={signUserOut}> Log Out</button>
+            <Link to="/"> Home </Link>
+            <Link to="/setstatus" style={{ padding: "40px" }}>
+              {" "}
+              Set your status{" "}
+            </Link>
+            <button className="logout-with-google-btn" onClick={signUserOut}>
+              {" "}
+              Log Out
+            </button>
           </>
         )}
       </nav>
@@ -42,7 +47,6 @@ function App() {
         <Route path="/setstatus" element={<SetStatus isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="*" element={<p>There's nothing here: 404!</p>} />
-
       </Routes>
     </Router>
   );

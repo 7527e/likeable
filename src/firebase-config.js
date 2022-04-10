@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "likeable-b186c",
   storageBucket: "likeable-b186c.appspot.com",
   messagingSenderId: "211822163408",
-  appId: "1:211822163408:web:0cb91760cc8f3cff4835d5"
+  appId: "1:211822163408:web:0cb91760cc8f3cff4835d5",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

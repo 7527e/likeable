@@ -2,12 +2,10 @@
   text-align: center;
 }
 
-html  
-{
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -29,15 +27,15 @@ nav {
 }
 
 a {
-  color: #9a1c23;;
+  color: #9a1c23;
   text-decoration: none;
   margin: 10px;
   font-size: 20px;
   font-weight: 100;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a:hover{
+a:hover {
   color: #730309;
 }
 
@@ -58,7 +56,6 @@ a:hover{
   display: flex;
   flex-direction: column;
 }
-
 
 .cpContainer h1 {
   text-align: center;
@@ -121,7 +118,7 @@ textarea {
   height: 190px;
   background-color: white;
   position: absolute;
-  top:0;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -129,15 +126,14 @@ textarea {
   margin: 20px;
   padding: 20px;
   border-radius: 15px;
-  
-  margin: auto;
 
+  margin: auto;
 }
 
 .loginPage h1 {
   font-size: 30px;
   color: grey;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
 }
 
@@ -232,18 +228,18 @@ textarea {
   overflow-y: auto;
 }
 
-nav > h1{
+nav > h1 {
   font-size: 35px;
-  color: #E50914;
+  color: #e50914;
   align-items: flex-end;
   display: inline-block;
   margin: 40px;
   outline-offset: 0ch;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1{
-  color: #E50914;
+h1 {
+  color: #e50914;
   /* color: #e62e00; */
 }
 .statusHeader .btn-small {

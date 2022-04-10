@@ -9,11 +9,15 @@ function SetStatus({ isAuth }) {
   let navigate = useNavigate();
 
   const setstatus = async () => {
-    await setDoc(doc(db, "users", auth.currentUser.uid ), {
-      status: statusText,
-      name: auth.currentUser.displayName, 
-      email: auth.currentUser.email
-    },{merge:true});
+    await setDoc(
+      doc(db, "users", auth.currentUser.uid),
+      {
+        status: statusText,
+        name: auth.currentUser.displayName,
+        email: auth.currentUser.email,
+      },
+      { merge: true }
+    );
     navigate("/");
   };
 

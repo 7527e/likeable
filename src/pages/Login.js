@@ -19,7 +19,6 @@ function Login({ setIsAuth }) {
       <button className="login-with-google-btn" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
-      
     </div>
   );
 }
